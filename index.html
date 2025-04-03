@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI工具导航 - 精选AI工具集合</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .tool-card {
+            transition: transform 0.2s;
+        }
+        .tool-card:hover {
+            transform: translateY(-5px);
+        }
+        .star-rating {
+            color: #FFD700;
+        }
+        .filter-active {
+            background-color: #2563eb;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-6">
+            <h1 class="text-3xl font-bold text-gray-800">AI工具导航</h1>
+            <p class="mt-2 text-gray-600">发现和使用最优质的AI工具</p>
+            
+            <!-- 搜索栏 -->
+            <div class="mt-6">
+                <div class="relative">
+                    <input type="text" id="search" 
+                           class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                           placeholder="搜索AI工具...">
+                    <button class="absolute right-3 top-2">
+                        <i class="fas fa-search text-gray-400"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 筛选选项 -->
+            <div class="mt-4 flex flex-wrap gap-4">
+                <div class="flex items-center">
+                    <span class="mr-2 text-gray-700">价格:</span>
+                    <select id="price-filter" class="border rounded px-2 py-1">
+                        <option value="all">全部</option>
+                        <option value="free">免费</option>
+                        <option value="paid">付费</option>
+                    </select>
+                </div>
+                <div class="flex items-center">
+                    <span class="mr-2 text-gray-700">评分:</span>
+                    <select id="rating-filter" class="border rounded px-2 py-1">
+                        <option value="all">全部</option>
+                        <option value="4">4星以上</option>
+                        <option value="3">3星以上</option>
+                    </select>
+                </div>
+                <div class="flex items-center">
+                    <span class="mr-2 text-gray-700">语言:</span>
+                    <select id="language-filter" class="border rounded px-2 py-1">
+                        <option value="all">全部</option>
+                        <option value="cn">中文</option>
+                        <option value="en">英文</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <!-- 分类导航 -->
+        <nav class="mb-8">
+            <ul class="flex flex-wrap gap-4">
+                <li><a href="#ai-writing" class="px-4 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600">AI写作</a></li>
+                <li><a href="#ai-image" class="px-4 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600">AI图像</a></li>
+                <li><a href="#ai-video" class="px-4 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600">AI视频</a></li>
+                <li><a href="#ai-audio" class="px-4 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600">AI音频</a></li>
+                <li><a href="#ai-code" class="px-4 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600">AI编程</a></li>
+            </ul>
+        </nav>
+
+        <!-- AI写作工具 -->
+        <section id="ai-writing" class="mb-12">
+            <h2 class="text-2xl font-bold mb-6 text-gray-800">AI写作工具</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="tool-card bg-white p-6 rounded-lg shadow-md" data-price="paid" data-rating="5" data-lang="en">
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-xl font-semibold mb-2">ChatGPT</h3>
+                        <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">付费</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">OpenAI开发的大型语言模型，可用于对话、写作和内容创作</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <div class="star-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="text-gray-600 ml-2">(4.9)</span>
+                        </div>
+                        <span class="text-sm text-gray-500">使用人数: 1000万+</span>
+                    </div>
+                    <a href="https://chat.openai.com" target="_blank" class="text-blue-500 hover:text-blue-600">访问网站 →</a>
+                </div>
+                <div class="tool-card bg-white p-6 rounded-lg shadow-md" data-price="free" data-rating="4.8" data-lang="en">
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-xl font-semibold mb-2">Claude</h3>
+                        <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-sm">免费</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">Anthropic开发的AI助手，擅长写作和分析</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <div class="star-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="text-gray-600 ml-2">(4.8)</span>
+                        </div>
+                        <span class="text-sm text-gray-500">使用人数: 500万+</span>
+                    </div>
+                    <a href="https://claude.ai" target="_blank" class="text-blue-500 hover:text-blue-600">访问网站 →</a>
+                </div>
+                <div class="tool-card bg-white p-6 rounded-lg shadow-md" data-price="free" data-rating="4.5" data-lang="cn">
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-xl font-semibold mb-2">文心AI</h3>
+                        <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-sm">免费</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">中文AI写作助手，支持多种写作场景和内容类型</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <div class="star-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="text-gray-600 ml-2">(4.5)</span>
+                        </div>
+                        <span class="text-sm text-gray-500">使用人数: 100万+</span>
+                    </div>
+                    <a href="https://wenxin.baidu.com" target="_blank" class="text-blue-500 hover:text-blue-600">访问网站 →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI图像工具 -->
+        <section id="ai-image" class="mb-12">
+            <h2 class="text-2xl font-bold mb-6 text-gray-800">AI图像工具</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="tool-card bg-white p-6 rounded-lg shadow-md" data-price="paid" data-rating="4.9" data-lang="en">
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-xl font-semibold mb-2">Midjourney</h3>
+                        <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">付费</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">AI艺术和图像生成工具，可创建高质量的艺术作品</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <div class="star-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="text-gray-600 ml-2">(4.9)</span>
+                        </div>
+                        <span class="text-sm text-gray-500">使用人数: 800万+</span>
+                    </div>
+                    <a href="https://www.midjourney.com" target="_blank" class="text-blue-500 hover:text-blue-600">访问网站 →</a>
+                </div>
+                <div class="tool-card bg-white p-6 rounded-lg shadow-md" data-price="paid" data-rating="4.7" data-lang="en">
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-xl font-semibold mb-2">DALL-E</h3>
+                        <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">付费</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">OpenAI的AI图像生成工具，可将文字转换为创意图像</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <div class="star-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="text-gray-600 ml-2">(4.7)</span>
+                        </div>
+                        <span class="text-sm text-gray-500">使用人数: 500万+</span>
+                    </div>
+                    <a href="https://labs.openai.com" target="_blank" class="text-blue-500 hover:text-blue-600">访问网站 →</a>
+                </div>
+                <div class="tool-card bg-white p-6 rounded-lg shadow-md" data-price="free" data-rating="4.6" data-lang="cn">
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-xl font-semibold mb-2">文心一笔</h3>
+                        <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-sm">免费</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">百度的AI绘画工具，支持中文描述生成图像</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <div class="star-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="text-gray-600 ml-2">(4.6)</span>
+                        </div>
+                        <span class="text-sm text-gray-500">使用人数: 200万+</span>
+                    </div>
+                    <a href="https://yige.baidu.com" target="_blank" class="text-blue-500 hover:text-blue-600">访问网站 →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI视频工具 -->
+        <section id="ai-video" class="mb-12">
+            <h2 class="text-2xl font-bold mb-6 text-gray-800">AI视频工具</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="tool-card bg-white p-6 rounded-lg shadow-md" data-price="paid" data-rating="4.7" data-lang="en">
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-xl font-semibold mb-2">Runway</h3>
+                        <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">付费</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">AI视频编辑和生成工具，支持多种创意视频效果</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <div class="star-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="text-gray-600 ml-2">(4.7)</span>
+                        </div>
+                        <span class="text-sm text-gray-500">使用人数: 100万+</span>
+                    </div>
+                    <a href="https://runway.ml" target="_blank" class="text-blue-500 hover:text-blue-600">访问网站 →</a>
+                </div>
+                <div class="tool-card bg-white p-6 rounded-lg shadow-md" data-price="free" data-rating="4.5" data-lang="cn">
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-xl font-semibold mb-2">视频易秀</h3>
+                        <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-sm">免费</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">快手的AI视频创作工具，支持一键生成短视频</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <div class="star-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="text-gray-600 ml-2">(4.5)</span>
+                        </div>
+                        <span class="text-sm text-gray-500">使用人数: 50万+</span>
+                    </div>
+                    <a href="https://yixiu.kuaishou.com" target="_blank" class="text-blue-500 hover:text-blue-600">访问网站 →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI音频工具 -->
+        <section id="ai-audio" class="mb-12">
+            <h2 class="text-2xl font-bold mb-6 text-gray-800">AI音频工具</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="tool-card bg-white p-6 rounded-lg shadow-md" data-price="paid" data-rating="4.6" data-lang="en">
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-xl font-semibold mb-2">Mubert</h3>
+                        <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">付费</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">AI音乐生成工具，可创建各种风格的背景音乐</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <div class="star-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="text-gray-600 ml-2">(4.6)</span>
+                        </div>
+                        <span class="text-sm text-gray-500">使用人数: 50万+</span>
+                    </div>
+                    <a href="https://mubert.com" target="_blank" class="text-blue-500 hover:text-blue-600">访问网站 →</a>
+                </div>
+                <div class="tool-card bg-white p-6 rounded-lg shadow-md" data-price="free" data-rating="4.4" data-lang="cn">
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-xl font-semibold mb-2">网易云音乐AI</h3>
+                        <span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-sm">免费</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">网易的AI音乐创作平台，支持一键生成音乐</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <div class="star-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="text-gray-600 ml-2">(4.4)</span>
+                        </div>
+                        <span class="text-sm text-gray-500">使用人数: 30万+</span>
+                    </div>
+                    <a href="https://music.163.com" target="_blank" class="text-blue-500 hover:text-blue-600">访问网站 →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI编程工具 -->
+        <section id="ai-code" class="mb-12">
+            <h2 class="text-2xl font-bold mb-6 text-gray-800">AI编程工具</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="tool-card bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-2">GitHub Copilot</h3>
+                    <p class="text-gray-600 mb-4">AI代码助手，提供智能代码补全和建议</p>
+                    <a href="https://github.com/features/copilot" target="_blank" class="text-blue-500 hover:text-blue-600">访问网站 →</a>
+                </div>
+                <div class="tool-card bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-2">Codeium</h3>
+                    <p class="text-gray-600 mb-4">免费的AI编程助手，支持多种编程语言和IDE</p>
+                    <a href="https://codeium.com" target="_blank" class="text-blue-500 hover:text-blue-600">访问网站 →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <p class="text-center">© 2025 AI工具导航 - 精选AI工具集合</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for search and filtering -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('search');
+            const priceFilter = document.getElementById('price-filter');
+            const ratingFilter = document.getElementById('rating-filter');
+            const languageFilter = document.getElementById('language-filter');
+            const toolCards = document.querySelectorAll('.tool-card');
+
+            function filterTools() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const priceValue = priceFilter.value;
+                const ratingValue = parseFloat(ratingFilter.value) || 0;
+                const languageValue = languageFilter.value;
+
+                toolCards.forEach(card => {
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    const description = card.querySelector('p').textContent.toLowerCase();
+                    const price = card.dataset.price;
+                    const rating = parseFloat(card.dataset.rating);
+                    const language = card.dataset.lang;
+
+                    const matchesSearch = title.includes(searchTerm) || description.includes(searchTerm);
+                    const matchesPrice = priceValue === 'all' || price === priceValue;
+                    const matchesRating = rating >= ratingValue;
+                    const matchesLanguage = languageValue === 'all' || language === languageValue;
+
+                    if (matchesSearch && matchesPrice && matchesRating && matchesLanguage) {
+                        card.style.display = '';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+
+            // Add event listeners
+            searchInput.addEventListener('input', filterTools);
+            priceFilter.addEventListener('change', filterTools);
+            ratingFilter.addEventListener('change', filterTools);
+            languageFilter.addEventListener('change', filterTools);
+        });
+    </script>
+</body>
+</html>
